@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem vindo</title>
+    <style>
+        .tot{
+            width: 400px;
+            margin: auto;
+        }
+        .head{
+            background-color: rgb(177, 0, 0);
+            color: white;
+            height: 120px;
+            width: 100%;
+        }
+        .btn{
+            background-color: rgb(90, 4, 170);
+            font-size: large;
+            border: 1px solid black;
+            border-radius: 30px;
+            height: 50px;
+            width: 50%;
+            color: white;
+            margin-bottom: 20px;
+        }
+        @media (max-width:500px) {
+            .tot{
+                width: 200px;
+            }
+            .btn{
+                width: 190px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="./load/load.css">
+    <span id="load">
+        <div class="loading" tabindex="-1">
+            <div class="top center">
+                <img src="./load/load.png" class="img" height="100%" width="100%">
+                <h1>Carregando...</h1>
+            </div>
+        </div>
+    </span>
+    <script src="./load/load.js"></script> 
+    <h1 class="head center">
+        <br>
+        Escolha uma Página
+    </h1>
+    <br><button class="th-btn" onclick="theme()"> Mudar Tema </button>
+    <div class="tot center">
+        <br><br><br>
+        <a href="./matematica/calculadora.html"><button class="btn">Calculadora</button></a><br>
+        <a href="./matematica/determinante_e_perimetro.html"><button class="btn">Determinante e Perímetro</button></a><br>
+        <a href="./Fisica/eletrostatica/coulomb.html"><button class="btn">Lei de Coulomb</button></a><br>
+        <a href="./Fisica/eletrostatica/campo.html"><button class="btn">Campo Elétrico</button></a><br>
+        <a href="./Fisica/eletrostatica/potencial.html"><button class="btn">Potêncial Elétrico</button></a><br>
+        <a href="./Fisica/eletrostatica/capacitancia.html"><button class="btn">Capacitância</button></a><br>
+        <a href="./Fisica/eletrostatica/energia_potencial.html"><button class="btn">Energia Potêncial Elétrica</button></a><br>
+        <a href="./Fisica/eletrodinamica/corrente.html"><button class="btn">Corrente Elétrica</button></a><br>
+        <a href="./Fisica/eletrodinamica/resistencia.html"><button class="btn">Resistência Elétrica</button></a><br>
+        <a href="./Fisica/eletrodinamica/tensao.html"><button class="btn">Tensão</button></a><br>
+        <a href="./Fisica/eletrodinamica/potencia.html"><button class="btn">Potência Elétrica</button></a><br>
+        <a href="./Fisica/eletrodinamica/geradores.html"><button class="btn">Gerador Elétrico</button></a><br>
+        <a href="./Fisica/eletrodinamica/receptores.html"><button class="btn">Receptor Elétrico</button></a><br>
+        <a href="./Fisica/eletrodinamica/eletromagnetismo.html"><button class="btn">Eletromagnetismo</button></a><br><br>
+    </div>
+</body>
+</html>

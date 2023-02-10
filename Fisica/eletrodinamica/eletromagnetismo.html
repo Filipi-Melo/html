@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletromagnetismo</title>
+    <style>
+        .back_purple{background-color: rgb(118, 1, 228)}
+        .radius{ border-radius: 35px }
+        
+        .head{
+            background-color: rgb(18, 0, 182);
+            height: 120px;
+            width: 100%;
+        }
+        
+        .dt{
+            height: 600px;
+            width: 100%;
+        }
+        
+        .di1{
+            height:80%;
+            width: 400px;
+            margin:auto;
+            border: 2px groove var(--black);
+            background-color: var(--gray);
+        }
+        
+        .di2{ height: 15% }
+        
+        .di2b{
+            height:60px;
+            width: 100%;
+            margin-top: -70px;
+            border-bottom: 2px groove var(--black);
+        }
+        
+        #bar{
+            height:100px;
+            width: 100%;
+            margin-top: -95px;
+        }
+        
+        @media (max-width:430px) {
+            #bar{ margin-top: -80px }
+            .font{ font-size: 87% }
+            .di1{ width: 96% }
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="../load/load.css">
+    <span id="load">
+        <div class="loading" tabindex="-1">
+            <div class="top center">
+                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <h1>Carregando...</h1>
+            </div>
+        </div>
+    </span>
+    <script src="../load/load.js"></script>
+
+    <div class="head center font"><br><br><h1>Fórmulas de Eletromagnetismo</h1></div>
+    <br><button class="th-btn" onclick="theme()"> Mudar Tema </button>
+    <br>
+    <br>
+    <p class="all"></p>
+    
+    <script>
+        let matriz = [
+        ["Campo <br>eletromagnético","B=(MxI)/2πR <div id='bar' class='back_purple'></div>","a corrente (A)","o raio (M)"],
+    	["Corrente","I=(Bx2πR)/M","a intensidade <br>do campo eletromagnético (T)","o raio (M)"],
+        ["Raio","R=(MxI)/2πB","a corrente (A)","a intensidade <br>do campo eletromagnético (T)"]
+        ];
+
+    	let create=(clss,mtz)=>{
+            let tex='';
+            for(let id=0; id< mtz.length; id++){
+            tex+="<div class='dt'>"+ 
+                "<div class='di1 radius'>"+
+                    "<div class='di2 center radius back_purple font'><br>"+ 
+                        "<h1><span>"+mtz[id][0]+"</span><br><span>"+mtz[id][1]+"</span></h1><br>"+
+                        "<div class='di2b back_purple'></div>"+
+                    "</div>"+
+                    "<div class='center'><br><br><br><br>"+
+                        "<h3>Digite <span>"+mtz[id][2]+"</span></h3>"+
+                            "<input id='ida"+id+"' class='center' type='number'><br>"+
+                        "<h3>Digite <span>"+mtz[id][3]+"</span></h3>"+
+                            "<input id='idb"+id+"' class='center' type='number' onkeyup=calc"+id+"()><br>"+
+                        "<br><br>"+
+                        "<h2>Resultado:<br></h2><br>"+
+                        "<h2 id='idc"+id+"'></h2>"+
+                        "<input id='idd"+id+"' class='center' type='text'>"+
+                    "</div>"+
+                "</div>"+
+            "</div>";
+            }
+            qsi(clss,tex);
+        }
+        create(".all",matriz);
+        
+        const calc0=()=> (qsi("#idc0",4*(qsv("#ida0")/(2*qsv("#idb0")))+"x10^-7 T"),
+            setv("#idd0",4*(qsv("#ida0")/(2*qsv("#idb0"))*10**-7)+" T"))
+        
+        const calc1=()=>(qsi("#idc1",(qsv("#ida1")*(2*qsv("#idb1"))/4)+"x10^7 A"),
+            setv("#idd1",(qsv("#ida1")*(2*qsv("#idb1"))/4*10**7)+" A"))
+
+        const calc2=()=>(qsi("#idc2",4*(qsv("#ida2")/(2*qsv("#idb2")))+"x10^-7 M"), 
+            setv("#idd2",4*(qsv("#ida2")/(2*qsv("#idb2"))*10**-7)+" M"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determinante e Perímetro</title>
+    <style>
+        :root{    
+            --gray:rgb(146, 143, 143);
+        }
+        .heig15{height: 15%}
+        .back_pink{background-color: rgb(255, 0, 76)}
+
+        .divt{
+            height: 600px;
+            width: 100%;
+        }
+
+        .di1{
+            height:90%;
+            width: 400px;
+            background-color: var(--gray);
+            border: 2px groove var(--black);
+            margin:auto;
+        }
+        
+        .di2{
+            height:60px;
+            width: 100%;
+            margin-top: -65px;
+            border-bottom: 2px groove var(--black);
+        }
+        
+        button{
+            width: 100px;
+            padding-bottom: 5px;
+            margin-bottom: 3px;
+        }
+
+        .th-btn{
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        
+        @media (max-width: 420px){
+            .di1{width: 95%;}
+            input{width: 160px}
+        }
+        
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="../load/load.css">
+    <span id="load">
+        <div class="loading" tabindex="-1">
+            <div class="top center">
+                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <h1>Carregando...</h1>
+            </div>
+        </div>
+    </span>
+    <script src="../load/load.js"></script>  
+    <br>
+    <br>
+    <div class='divt'>
+        <div class='di1 radius'>
+            <div heigth="15%" class='back_pink radius center' 
+            style="border-top: 1px solid var(--black);margin-top: -1px;">
+                <br>
+                    <h1>Calcular a área<br> e perímetro</h1>
+                <br>
+                <div class='di2 back_pink'></div>
+            </div>
+            <div class='center'>
+                <br>
+                <br>
+                <h3>Digite o X do ponto</h3>
+                <input id='x' class="center" type='number'>
+                <br>
+                <br>
+                <h3>Digite o Y do ponto</h3>
+                <input id='y' class="center" type='number'>
+                <br>
+                <br>
+                <button onclick="guardar()">guardar</button><br>
+                <button onclick="calc()">calcular</button><br>
+                <button onclick="limpult()">limpar último</button><br>
+                <button onclick="clr()">limpar tudo</button>
+                <br>
+                <h4>Valores de X:
+                    <span id='xt'></span>
+                </h4>
+                <h4>Valores de Y:
+                    <span id='yt'></span>
+                </h4>
+                <br>
+                <b>
+                    <p>Área:</p>
+                    <input id="area" class="center">
+                    <p>Perímetro:</p>
+                    <input id="peri" class="center">
+                </b>
+                <br>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button class="th-btn" onclick="theme()"> Mudar Tema </button>
+    </div>
+    <script>
+        let [x,y]=[[],[]];
+        
+        let guardar = ()=> (qsv("#x")=="")||(qsv("#y")=="") ? alert("Escreva valores não nulos"):
+        (x.push(qsv("#x")),y.push(qsv("#y")),qsi("#xt"," "+x+"."),qsi("#yt"," "+y+"."),setv("#x",""),setv("#y",""));
+        
+        let calc = ()=> {
+            let [xm,ym,per]=[0,0,0];
+            if(x.length<3) return alert("Escreva mais de 2 valores")
+            for(n=1;n<x.length;n++){
+                xm += x[n]*y[n-1];
+                ym += x[n-1]*y[n]*-1;
+                per+=((x[n]-x[n-1])**2+(y[n]-y[n-1])**2)**0.5
+            }
+            per+=((x[x.length-1]-x[0])**2+(y[y.length-1]-y[0])**2)**0.5
+            let area=(xm+ym)/2;
+            if(area < 0) area*=-1
+            setv('#area',area),setv('#peri',per.toFixed(4))
+        }
+        const limpult = ()=> (x.pop(),y.pop(),setv("#x",""),setv("#y",""),qsi("#xt"," "+x+"."),qsi("#yt"," "+y+"."))
+        const clr = ()=> {x=[],y=[],setv("#x",''),setv("#y",''),qsi("#xt",""),qsi("#yt",""),setv("#area",''),setv("#peri",'')}
+    </script>   
+</body>
+</html>

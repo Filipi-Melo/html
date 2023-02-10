@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Potêncial elétrico</title>
+    <style>
+        .back_yellow{background-color: rgb(190, 188, 33)}        
+        .dt{
+            height: 600px;
+            width: 100%;
+        }
+        .head{
+            background-color:  rgb(238, 93, 9);
+            height: 120px;
+            width: 100%;
+        }
+        .di1{
+            height:90%;
+            width: 400px;
+            margin:auto;
+            background-color: var(--gray);
+            border: 2px groove var(--black);
+        }
+        .di2{height: 15%}
+        .di2b{
+            height:60px;
+            width: 100%;
+            margin-top: -70px;
+            border-bottom: 2px groove var(--black);
+        }
+        @media (max-width:430px) {
+            .head{height: 160px}
+            .di1{ 
+                width: 96%;
+                height: 95%;
+            }
+            .di2b{
+                height: 80px; 
+                margin-top: -90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="../load/load.css">
+    <span id="load">
+        <div class="loading" tabindex="-1">
+            <div class="top center">
+                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <h1>Carregando...</h1>
+            </div>
+        </div>
+    </span>
+    <script src="../load/load.js"></script>
+    
+    <div class="head center"><br><br><h1>Fórmulas de potencial elétrico</h1></div>
+    <br>
+    <br>
+    <button class="th-btn" onclick="theme()"> Mudar Tema </button>
+    <br>
+    <br>
+    <p id="all"></p>
+    <script>
+        let matriz = [
+        ["Potencial","U=KxQ/D","a carga (C)","a distância (M)"],
+        ["Potencial","U=Q/C","a carga (C)","a capacitância (F)"]
+        ];
+        const create = (idt,mtz)=>{
+            let text='';
+            for(let id=0; id < mtz.length; id++){
+                text+="<div class='dt center'>"+ 
+                    "<div class='di1 radius center'>"+
+                        "<div class='di2 radius back_yellow center'><br>"+ 
+                            "<h1><span>"+mtz[id][0]+"</span><br><span>"+mtz[id][1]+"</span></h1><br>"+
+                            "<div class='di2b back_yellow center'></div>"+
+                        "</div>"+
+                        "<div class='center'><br><br><br>"+
+                            "<h3>Digite <span>"+mtz[id][2]+"</span></h3>"+
+                                "<input id='ida"+id+"' class='center' type='number'><br>"+
+                            "<h3>Digite o expoente da base 10 d<span>"+mtz[id][2]+"</span></h3>"+
+                                "<input id='idb"+id+"' class='center' type='number'><br>"+
+                            "<h3>Digite <span>"+mtz[id][3]+"</span></h3>"+
+                                "<input id='idc"+id+"' class='center' type='number' onkeyup=calc"+id+"()><br>"+
+                            "<div id='dt"+id+"'><h3>Digite o expoente da base 10 d<span>"+mtz[id][3]+"</span></h3>"+
+                                "<input id='idd"+id+"' class='center' type='number' onkeyup=calc"+id+"()></div><br><br>"+
+                            "<h2>Resultado:<br><b id='ide"+id+"'></b></h2><br>"+
+                            "<input id='idf"+id+"' class='center'>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>";
+            }
+            qsi(idt,text);
+        }
+        create("#all",matriz);
+        qsi('#dt0','');
+
+        const calc0=()=>(qsi("#ide0", 9*qsv("#ida0")/qsv("#idc0")+"x10^"+(qsv("#idb0")*1+9)+" V"),
+            setv('#idf0', (9*qsv("#ida0")/qsv("#idc0"))*(10**(qsv("#idb0")*1+9))+" V"))
+        
+        const calc1=()=>(qsi("#ide1", qsv("#ida1")/qsv("#idc1")+"x10^"+(qsv("#idb1")-qsv("#idd1"))+" V"),
+            setv('#idf1', (qsv("#ida1")/qsv("#idc1"))*(10**(qsv("#idb1")-qsv("#idd1")))+" V"))
+    </script>
+</body>
+</html>

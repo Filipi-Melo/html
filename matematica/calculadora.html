@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Web calculadora</title>
+    <style>
+        :root{    
+            --blue:rgb(9, 204, 238);
+        }
+        
+        .heig15{height: 15%}
+        .back_purple{background-color: rgb(107, 0, 168)}
+
+        .divt{
+            height: 600px;
+            width: 100%;
+        }
+        
+        .head{
+            background-color: var(--blue);
+            width: 100%;
+        }
+
+        .di1{
+            height:65%;
+            width: 400px;
+            background-color: var(--gray);
+            border: 2px groove var(--black);
+            margin:auto;
+        }
+        .di2{
+            height:30px;
+            width: 100%;
+            border-bottom: 2px groove var(--black);
+            margin-top: -40px;
+        }
+
+        @media (max-width: 420px){
+            .di1{width: 95%}
+            input{width: 160px}
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="../load/load.css">
+    <span id="load">
+        <div class="loading" tabindex="-1">
+            <div class="top center">
+                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <h1>Carregando...</h1>
+            </div>
+        </div>
+    </span>
+    <script src="../load/load.js"></script> 
+    
+    <div class="divt">
+        <div class="head center heig15"><br><h1>Web calculadora</h1></div>
+        <h1><br><br></h1>
+        <div class="di1 radius">
+            <div class="center radius heig15 back_purple" 
+            style="border-top: 1px solid var(--black);margin-top: -1px;"> 
+                <br>
+                <h1>Calcular</h1><br>
+                <div class="di2 back_purple"></div>
+            </div>
+            <div class="center">
+                <br><br><br>
+                <input placeholder="Digite um número" id="num1" type="number" class="center"><br><br>
+                <input placeholder="Digite um número" id="num2" type="number" class="center"><br><br>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value*1+qs('#num2').value*1;">Somar</button>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value*1-qs('#num2').value*1;">Subtrair</button>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value*qs('#num2').value;">Multiplicar</button>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value*1/qs('#num2').value*1;">Dividir</button><br>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value**(1/qs('#num2').value);">Raiz</button>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value**qs('#num2').value;">Potência</button>
+                <button type="button" onclick="qs('#res').value = qs('#num1').value*qs('#num2').value/100;">Porcentagem</button>
+                <button type="button" onclick="qs('#res').value = ((num)=>{fat=num;for(let n=2; n<num;n++) fat*=n;return fat})(qs('#num1').value);">Fatorial</button>
+                <br><br>
+                <h1>Resultado:</h1>
+                <input id="res" class="center">
+            </div>
+        </div>
+    </div>
+    <br><button class="th-btn" onclick="theme()"> Mudar Tema </button>
+</body>
+</html>
