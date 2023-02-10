@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Web calculadora</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calculadora</title>
     <style>
         :root{    
+            --gray:rgb(146, 143, 143);
             --blue:rgb(9, 204, 238);
         }
-        
         .heig15{height: 15%}
         .back_purple{background-color: rgb(107, 0, 168)}
-
-        .divt{
-            height: 600px;
-            width: 100%;
-        }
         
         .head{
             background-color: var(--blue);
+            height: 100px;
+            width: 100%;
+        }
+        .divt{
+            height: 500px;
             width: 100%;
         }
 
         .di1{
-            height:65%;
+            height:75%;
             width: 400px;
             background-color: var(--gray);
             border: 2px groove var(--black);
             margin:auto;
         }
+        
         .di2{
-            height:30px;
+            height:60px;
             width: 100%;
+            margin-top: -50px;
             border-bottom: 2px groove var(--black);
-            margin-top: -40px;
         }
 
+        .th-btn{
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        
         @media (max-width: 420px){
-            .di1{width: 95%}
+            .di1{width: 95%;}
             input{width: 160px}
         }
+        
     </style>
 </head>
 <body>
-    <link rel="stylesheet" href="../load/load.css">
+    <link rel="stylesheet" href="https://filipi-melo.github.io/html/load/load.css">
     <span id="load">
         <div class="loading" tabindex="-1">
             <div class="top center">
-                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <img src="https://filipi-melo.github.io/html/load/load.png" class="img" height="100%" width="100%">
                 <h1>Carregando...</h1>
             </div>
         </div>
     </span>
-    <script src="../load/load.js"></script> 
-    
+    <script src="https://filipi-melo.github.io/html/load/load.js"></script> 
+    <div class="head center heig15"><br><h1>Web calculadora</h1></div>
+    <br>
+    <br>
     <div class="divt">
-        <div class="head center heig15"><br><h1>Web calculadora</h1></div>
-        <h1><br><br></h1>
         <div class="di1 radius">
             <div class="center radius heig15 back_purple" 
             style="border-top: 1px solid var(--black);margin-top: -1px;"> 
@@ -81,7 +89,8 @@
                 <input id="res" class="center">
             </div>
         </div>
+        <br>
+        <button class="th-btn" onclick="theme()"> Mudar Tema </button>
     </div>
-    <br><button class="th-btn" onclick="theme()"> Mudar Tema </button>
 </body>
 </html>
