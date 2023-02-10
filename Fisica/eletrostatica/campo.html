@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campo elétrico</title>
-<style>
-    .back_blue{background-color: rgb(3, 175, 187)}
-        
-    .dt{
-        height: 600px;
-        width: 100%;
-    }
-    .head{
-        background-color: rgb(196, 8, 39);
-        height: 120px;
-        width: 100%;
-    }
-    .di1{
-        height:80%;
-        width: 400px;
-        margin:auto;
-        background-color: var(--gray);
-        border: 2px groove var(--black);
-    }
-    .di2{height: 15%}
-    .di2b{
-        height:60px;
-        width: 100%;
-        margin-top: -64px;
-        border-bottom: 2px groove var(--black);
-    }
-    @media (max-width:430px) {
-        .di1{ width: 96% }
-        .di2b{ 
-            margin-top: -97px;
-            height: 90px;
+    <style>
+        :root{    
+            --gray:rgb(146, 143, 143);
+            --blue:rgb(9, 204, 238);
         }
-    }
-</style>
+        .heig15{height: 15%}
+        .back_blue{background-color: rgb(3, 175, 187)}
+        
+        .head{
+            background-color: rgb(196, 8, 39);
+            height: 100px;
+            width: 100%;
+        }
+        .dt{
+            height: 600px;
+            width: 100%;
+        }
+
+        .di1{
+            height:80%;
+            width: 400px;
+            background-color: var(--gray);
+            border: 2px groove var(--black);
+            margin:auto;
+        }
+        
+        .di2b{
+            height:60px;
+            width: 100%;
+            margin-top: -60px;
+            border-bottom: 2px groove var(--black);
+        }
+
+        .th-btn{
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        
+        @media (max-width: 420px){
+            .di1{width: 95%;}
+            .di2b{ 
+                margin-top: -90px;
+                height: 90px;
+            }
+        }
+        
+    </style>
 </head>
 <body>
-    <link rel="stylesheet" href="../load/load.css">
+    <link rel="stylesheet" href="https://filipi-melo.github.io/html/load/load.css">
     <span id="load">
         <div class="loading" tabindex="-1">
             <div class="top center">
-                <img src="../load/load.png" class="img" height="100%" width="100%">
+                <img src="https://filipi-melo.github.io/html/load/load.png" class="img" height="100%" width="100%">
                 <h1>Carregando...</h1>
             </div>
         </div>
     </span>
-    <script src="../load/load.js"></script>
-    <div class="head center"><br><br><h1>Campo elétrico</h1></div>
+    <script src="https://filipi-melo.github.io/html/load/load.js"></script> 
+    <div class="head center heig15"><br><h1>Campo elétrico</h1></div>
     <br><button class="th-btn" onclick="theme()"> Mudar Tema </button>
     <br>
     <br>
@@ -65,8 +79,6 @@
                 <div class="di2b back_blue"></div> 
             </div>
             <div class="center">
-                <br>
-                <br>
                 <br>
                 <br>
                 <h3>Digite a carga (C)</h3>
@@ -84,9 +96,9 @@
             </div>
         </div>
     </div>
-<script>
-    const calculo=()=>(qsi('#res1',"<br>"+(9*qsv('#q'))/qsv('#d')**2+"x"+"10^"+(9+qsv('#bq')*1)+"  N/C"),
-        setv('#res2',((9*qsv('#q'))/qsv('#d')**2*10**9+qsv('#bq')*1)+"  N/C"));
-</script>
+    <script>
+        const calculo=()=>(qsi('#res1',"<br>"+(9*qsv('#q'))/qsv('#d')**2+"x"+"10^"+(9+qsv('#bq')*1)+"  N/C"),
+            setv('#res2',((9*qsv('#q'))/qsv('#d')**2*10**(9+qsv('#bq')*1))+"  N/C"));
+    </script>
 </body>
 </html>
